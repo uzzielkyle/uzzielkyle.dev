@@ -1,5 +1,5 @@
 ---
 name: 'PHP'
 color: '#777BB4'
-logoUrl: 'src\assets\skills\languages\php.svg'
+logoUrl: '\assets\skills\languages\php.svg'
 ---
