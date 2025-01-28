@@ -1,0 +1,44 @@
+---
+const tools = Object.values(
+  import.meta.glob("../content/projects/*.md", { eager: true })
+);
+---
+
+<div id="projects" class="grid px-3 min-h-dvh max place-content-center mb-20 md:mb-40">
+  <h2 class="hidden">Projects</h2>
+  <div class="grid grid-cols-1 gap-24">
+    <div class="flex flex-col md:flex-row gap-6 w-dvw pr-9 pl-3  md:w-[50rem]">
+      <div class="rounded-lg w-full overflow-hidden shadow">
+        <img
+          class="h-full object-cover object-left"
+          src="src/assets/projects/filepartner.png"
+          alt=""
+        />
+      </div>
+      <div class="max-w-72">
+        <a href="https://github.com/uzzielkyle/FilePartner" target="_blank"><h3 class="font-bold text-6xl text-[#447eb4] hover:drop-shadow-[4px_4px_#447eb4] hover:text-white mb-4 transition-all duration-150">FilePartner</h3></a>
+        <p class="text-pretty text-lg font-mono font-thin pl-6">
+          A specialized application for converting files between different
+          formats and merging files of the same format, created using Python and
+          CustomTkinter.
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row-reverse gap-6 w-dvw pr-9 pl-3  md:w-[50rem]">
+      <div class="rounded-lg w-full overflow-hidden shadow">
+        <img
+          class="h-full object-cover object-right"
+          src="src/assets/projects/dorrafy.png"
+          alt=""
+        />
+      </div>
+      <div class="w-full md:max-w-72 text-right">
+        <a href="https://dorrafy.com/" target="_blank"><h3 class="font-bold text-6xl text-[#447eb4] hover:drop-shadow-[4px_4px_#447eb4] hover:text-white mb-4 transition-all duration-150">Dorrafy</h3></a>
+        <p class="text-pretty text-lg font-mono font-thin pr-6 mb-6">
+          An online platform to request documents from Palawan State
+          University's Office of the University Registrar.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

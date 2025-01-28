@@ -1,0 +1,140 @@
+---
+const languages = Object.values(import.meta.glob('../content/skills/languages/*.md', { eager: true }));
+const libraries = Object.values(import.meta.glob('../content/skills/libraries-and-frameworks/*.md', { eager: true }));
+const tools = Object.values(import.meta.glob('../content/skills/databases-and-other-tools/*.md', { eager: true }));
+---
+
+<div id="skills" class="grid px-3 min-h-dvh max place-content-center">
+  <h2 class="hidden">Skills</h2>
+  <div
+    class="relative -top-6 px-6 w-dvw max-w-[26rem] md:max-w-none md:w-[32rem] lg:w-[55rem]"
+  >
+    <div class="relative p-3 pb-6 bg-white rounded-lg shadow-md">
+      <div
+        class="absolute -bottom-2 -right-2 -z-10 h-full w-full bg-[#447eb4] rounded-lg shadow-md"
+      >
+      </div>
+      <div
+        class="flex gap-2 pb-4 overflow-x-auto font-bold text-center rounded lg:mb-2 scrollbar-hide"
+      >
+        <button
+          data-button-type="skill-tab"
+          data-tab-name="Languages"
+          data-is-active="true"
+          class="flex items-center justify-center border-4 border-[#447eb4] bg-[#447eb4] text-white rounded-md py-1 px-6 min-w-40 text-xs"
+        >
+          Languages
+        </button>
+        <button
+        data-button-type="skill-tab"
+        data-tab-name="Libraries & Frameworks"
+        data-is-active="false"
+        class="flex items-center justify-center border-4 border-[#447eb4] text-[#447eb4] rounded-md py-1 lg:py-2 px-6 min-w-40 text-xs hover:bg-[#447eb4] hover:text-white transition-colors ease-in-out duration-75"
+      >
+        Libraries & Frameworks
+      </button>
+        <button
+          data-button-type="skill-tab"
+          data-tab-name="Databases & Other Tools"
+          data-is-active="false"
+          class="flex items-center justify-center border-4 border-[#447eb4] text-[#447eb4] rounded-md py-1 lg:py-2 px-6 min-w-40 text-xs hover:bg-[#447eb4] hover:text-white transition-colors ease-in-out duration-75"
+        >
+          Databases & Other Tools
+        </button>
+      </div>
+      <div>
+        <div
+          data-div-type="skill-tab"
+          data-tab-name="Languages"
+          data-tab-is-active="true"
+          class="scrollbar-hide relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 pb-6 md:pb-0 h-[26rem] items-start overflow-y-auto overflow-x-hidden"
+        >
+          {languages.map((language: any) => (
+                <!-- Card -->
+              <div class="flex flex-col items-center justify-center text-center">
+                <div class="w-full p-4">
+                  <img src={language.frontmatter.logoUrl} alt="" />
+                </div>
+                <div class="w-3/4 py-1 text-white -skew-x-3 -inset-1 -rotate-6" style={"background: " + language.frontmatter.color}>
+                  <span class="text-lg font-light -rotate-6">{language.frontmatter.name}</span>
+                </div>
+              </div>
+          )
+        )}
+        </div>
+        <div
+        data-div-type="skill-tab"
+        data-tab-name="Libraries & Frameworks"
+        data-tab-is-active="false"
+        class="scrollbar-hide relative hidden grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 pb-6 md:pb-0 h-[26rem] items-start overflow-y-auto overflow-x-hidden"
+      >
+          {libraries.map((library: any) => (
+                <!-- Card -->
+              <div class="flex flex-col items-center justify-center text-center">
+                <div class="w-full p-4">
+                  <img src={library.frontmatter.logoUrl} alt="" />
+                </div>
+                <div class="w-3/4 py-1 text-white -skew-x-3 -inset-1 -rotate-6" style={"background: " + library.frontmatter.color}>
+                  <span class="text-lg font-light -rotate-6">{library.frontmatter.name}</span>
+                </div>
+              </div>
+          )
+        )}
+        </div>
+        <div
+          data-div-type="skill-tab"
+          data-tab-name="Databases & Other Tools"
+          data-tab-is-active="false"
+          class="scrollbar-hide relative hidden grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 pb-6 md:pb-0 h-[26rem] items-start overflow-y-auto overflow-x-hidden"
+        >
+          {tools.map((tool: any) => (
+                <!-- Card -->
+              <div class="flex flex-col items-center justify-center text-center">
+                <div class="w-full p-4">
+                  <img src={tool.frontmatter.logoUrl} alt="" />
+                </div>
+                <div
+                  class="w-3/4 py-1 text-white -skew-x-3 -inset-1 -rotate-6"
+                  style={"background: " + tool.frontmatter.color}>
+                  <span class="text-lg font-light -rotate-6">{tool.frontmatter.name}</span>
+                </div>
+              </div>
+          )
+        )}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(window).on("load", () => {
+    $("#skills").on("click", "button[data-button-type=skill-tab]", (event) => {
+    let clickedTab = event.target;
+
+    if ($(clickedTab).data("is-active") === "true") { return };
+
+    $("button[data-button-type=skill-tab]").each((idx, btn) => {
+      $(btn).removeClass().addClass(
+        "flex items-center justify-center border-4 border-[#447eb4] text-[#447eb4] rounded-md py-1 lg:py-2 px-6 min-w-40 text-xs hover:bg-[#447eb4] hover:text-white transition-colors ease-in-out duration-75"
+      );
+      $(btn).data("is-active", "false");
+    });
+
+    $("div[data-div-type=skill-tab]").each((idx, div) => {
+      if($(div).data("tab-name") === $(clickedTab).data("tab-name")) {
+        $(div).removeClass("hidden").addClass("grid");
+        $(div).data("tab-is-active", true);
+      } else {
+        $(div).scrollTop(0);
+        $(div).removeClass("grid").addClass("hidden");
+        $(div).data("tab-is-active", false);
+      }
+    })
+
+    $(clickedTab).removeClass().addClass(
+      "flex items-center justify-center border-4 border-[#447eb4] bg-[#447eb4] text-white rounded-md py-1 px-6 min-w-40 text-xs cursor-default"
+    );
+    $(clickedTab).data("is-actived", "true");
+  });
+});
+</script>

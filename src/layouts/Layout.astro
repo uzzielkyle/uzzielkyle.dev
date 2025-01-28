@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="text-[#0d1822]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -10,14 +10,23 @@
     <meta name="generator" content={Astro.generator} />
     <title>uzzielkyle</title>
   </head>
-  <body>
-    <slot />
+  <body class="overflow-hidden max-h-dvh">
+    <div
+      class="relative overflow-scroll scrollbar-thin scrollbar-track-white scrollbar-thumb-[#5297d8] hover:scrollbar-thumb-[#5297d8] active:scrollbar-thumb-[#5297d8] max-h-dvh scroll-smooth"
+    >
+      <slot />
+      <div
+        class="fixed inset-x-0 bottom-0 z-40 h-48 md:h-52 bg-gradient-to-t from-white via-transparent to-transparent mr-2"
+      >
+      </div>
+    </div>
   </body>
+  <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </html>
 
 <style>
-	body {
-		background-color: #eaf2fb;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231b3146' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-	}
+  body {
+    background-color: #eaf2fb;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231b3146' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
 </style>

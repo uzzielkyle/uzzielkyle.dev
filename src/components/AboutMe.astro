@@ -1,5 +1,30 @@
-<div id="about-me" class="h-dvh grid place-items-center px-6">
-    <div>
-        <h2>Under Construction...</h2>
+---
+import myPhoto from "../assets/uzzielkyle.png";
+---
+
+<div id="about-me" class="grid px-6 min-h-dvh place-content-center">
+  <div>
+    <h2 class="hidden">About Me</h2>
+    <div class="relative flex flex-col items-end justify-end md:flex-row">
+      <img
+        src={myPhoto.src}
+        alt="a cut-out photo of me."
+        class="relative -z-10 md:z-10 -bottom-6 md:bottom-0 md:-right-12 h-72 md:h-96 lg:h-auto"
+      />
+      <div
+        class="relative md:bottom-16 grid place-items-center py-3 md:pt-6 px-6 md:pl-12 md:w-[24rem] lg:w-[32rem] lg:h-96 rounded-md md:rounded-lg bg-white shadow-md lg:shadow-lg"
+      >
+        <p class="relative text-2xl lg:text-4xl text-pretty">
+          I am a <span class="font-bold text-[#447eb4]"
+            >full-stack web developer</span
+          >. I focus on building fast-performing, modern-looking websites using
+          the latest technologies! 🚀🚀🚀
+        </p>
+        <div
+          class="absolute -bottom-2 -right-2 -z-10 h-full w-full bg-[#447eb4] rounded-lg shadow-md"
+        >
+        </div>
+      </div>
     </div>
+  </div>
 </div>
